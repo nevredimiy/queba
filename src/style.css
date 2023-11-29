@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+ @font-face {
+  font-family: Manrope;
+  src: url("./assets/Manrope/Manrope-VariableFont_wght.ttf");
+ }
+  html {
+    font-family: Manrope, sans-serif;
+  }
+  body {
+    @apply bg-baseWhite;
+  }
+  h1 {
+    @apply font-semibold text-6xl text-coolBlue3
+  }
+  h2 {
+    @apply font-bold text-4xl text-coolBlue3
+  }
+  h3 {
+    @apply text-4xl text-coolBlue3
+  }
+  h4 {
+    @apply font-bold uppercase text-lg text-umber1
+  }
+  .regal-link {
+    @apply font-medium text-2xl text-coolBlue2
+  }
+}
+
+.gradient-to-transporant {
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}

@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": "off"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_chr <= 117",
+    "not chrome <= 118",
+    "not edge <= 118",
+    "not opera <= 103",
+    "not samsung <= 22"
+  ]
+}
