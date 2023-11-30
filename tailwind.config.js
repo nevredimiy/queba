@@ -6,6 +6,17 @@ export default {
       center: true,
     },
     extend: {
+      keyframes: {
+        squish: {
+          '50%': {transform: 'scale(1.1, 0.9)'},
+        },
+      },
+      animation: {
+        squish: 'squish 0.5s ease-in-out',
+      },
+      screens: {
+        ssm: "396px",
+      },
       colors: {
         baseWhite: "#F5F5F5",
         baseBrown: "#79624F",

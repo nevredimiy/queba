@@ -1,29 +1,32 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
 import TheHeader from "./components/TheHeader.vue";
 import TheHero from "./components/TheHero.vue";
 import TheBook from "./components/TheBook.vue";
+import TheMobileMenu from './components/TheMobileMenu.vue'
 </script>
 
 <template>
-  <div>
-    <TheHeader />
+  <div class="">
+    <TheHeader @active-mobile-menu="activeMobileMenu" />
+    <TheMobileMenu :is-active="isActiveMobileMenu" @close="closeMobileMenu" />
     <TheHero />
     <TheBook />
   </div>
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script>
+export default {
+  data() {
+    return {
+      isActiveMobileMenu: false
+    }
+  },
+  methods: {
+    activeMobileMenu() {
+      this.isActiveMobileMenu = true;
+    },
+    closeMobileMenu() {
+      this.isActiveMobileMenu = false;
+    }
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+</script>
