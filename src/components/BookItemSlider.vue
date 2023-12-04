@@ -7,10 +7,11 @@
       <div class="bg-white px-6 pt-6 pb-4 inline-block relative top-1">
         <h2>{{ item.label }}</h2>
       </div>
-      <div class="bg-white pb-6">
-        <a class="flex gap-2 items-center w-full regal-link px-6" href="">
+      <div class="bg-white pb-6 mb-[1px]">
+        <a class="flex gap-2 items-center w-full regal-link px-6 group hover:text-coolBlue3" href="">
           Book a visit
           <BaseIcon
+          class="transition-transform group-hover:translate-x-2"
             width="32"
             height="19"
             viewBox="0 0 32 19"

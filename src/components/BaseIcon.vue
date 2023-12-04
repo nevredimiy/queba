@@ -1,5 +1,5 @@
 <template>
-  <svg :class="$attrs.class" width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg"
+  <svg :class="$attrs.class" class="transition group" width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg"
     v-html="path"></svg>
 </template>
 <script>

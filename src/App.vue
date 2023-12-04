@@ -2,7 +2,8 @@
 import TheHeader from "./components/TheHeader.vue";
 import TheHero from "./components/TheHero.vue";
 import TheBook from "./components/TheBook.vue";
-import TheMobileMenu from './components/TheMobileMenu.vue'
+import TheMobileMenu from './components/TheMobileMenu.vue';
+import TheSocialMedia from './components/TheSocialMedia.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import TheMobileMenu from './components/TheMobileMenu.vue'
     <TheMobileMenu :is-active="isActiveMobileMenu" @close="closeMobileMenu" />
     <TheHero />
     <TheBook />
+    <TheSocialMedia />
   </div>
 </template>
 <script>

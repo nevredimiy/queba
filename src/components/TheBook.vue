@@ -1,6 +1,6 @@
 <template lang="">
-  <section id="book" class="py-8 ssm:py-14">
-    <div class="container overflow-hidden">
+  <section id="book" class="px-9 ssm:px-2 py-8 ssm:py-14">
+    <div class="container overflow-hidden relative">
         <h4 class="mb-2">services and prices</h4>
         <h1 class="mb-8">Book your beauty</h1>
       <div class="relative overflow-x-auto">
@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="flex gap-8 px-9 pt-8">
+      <div class="flex gap-8 px-9 pt-8 lg:absolute right-0 top-6">
         <button class="hover:animate-squish" @click="handleLeftClick">
           <BaseIcon
             class="rotate-180"
