@@ -1,14 +1,10 @@
 <template>
-  <button class="btn"><IconTask class="color-brown" />Book online</button>
+  <button class="btn">
+    <slot name="text-btn"></slot>
+
+  </button>
 </template>
-<script>
-import IconTask from './icons/IconTask.vue'
-export default {
-  components: {
-    IconTask
-  }
-}
-</script>
+
 <style lang="scss">
 $bp-md: 980px;
 

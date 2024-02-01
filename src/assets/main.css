@@ -57,3 +57,6 @@ h4{
     display: flex !important;
   }
 }
+.m-40 {
+  margin: 40px 0;
+}

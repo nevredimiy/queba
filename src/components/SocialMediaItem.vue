@@ -37,90 +37,127 @@
       </div>
     </header>
     <main>
-        <div class="sm-card__img">
-            <slot name="img"></slot>
-        </div>
-
-      <transition
-        enter-active-class="transition-opacity ease-in-out duration-1000"
-        enter-from-class="opacity-100"
-      >
-        <div
-          v-show="isActive"
-          class="opacity-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-        >
-          <svg
-            class="w-36 h-36 fill-white stroke-white drop-shadow-whiteSnow transition"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-          >
-            <path
-              fill="current"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-            />
-          </svg>
-        </div>
-      </transition>
+      <div class="sm-card__img" @dblclick="isActive = !isActive">
+        <slot name="img"></slot>
+        <div :class="{'active-pulse': isActive}" class="like-position">
+            <icon-heart class="icon-like"></icon-heart>
+          </div>
+      </div>
     </main>
     <footer class="sm-card__footer">
       <div class="action">
-        <button class="action__btn" @click="handleLike">
-         <icon-heart class="icon-heart" />
+        <button class="action__btn" @click="isActive = !isActive">
+          <icon-heart class="icon-heart" :class="{ active: isActive }" />
         </button>
         <button class="action__btn">
           <icon-comment class="icon-comment"></icon-comment>
         </button>
         <button class="action__btn">
-        <icon-airplane class="icon-airplane"></icon-airplane>
+          <icon-airplane class="icon-airplane"></icon-airplane>
         </button>
       </div>
-      <button class="action__btn">
-      <icon-bookmark class="icon-bookmark"></icon-bookmark>
+      <button class="action__btn" @click="handleLike">
+        <icon-bookmark class="icon-bookmark"></icon-bookmark>
       </button>
     </footer>
   </div>
 </template>
 <script>
-import IconHeart from './icons/IconHeart.vue';
-import IconComment from './icons/IconComment.vue';
-import IconAirplane from './icons/IconAirplane.vue';
-import IconBookmark from './icons/IconBookmark.vue';
+import IconHeart from './icons/IconHeart.vue'
+import IconComment from './icons/IconComment.vue'
+import IconAirplane from './icons/IconAirplane.vue'
+import IconBookmark from './icons/IconBookmark.vue'
 export default {
-    components: {IconHeart, IconComment, IconAirplane, IconBookmark}
+  data() {
+    return {
+      isActive: false
+    }
+  },
+  components: { IconHeart, IconComment, IconAirplane, IconBookmark },
+  methods: {
+    handleLike(event) {
+      if (event.target.classList.contains('active')) {
+        event.target.classList.remove('active')
+      } else {
+        event.target.classList.add('active')
+      }
+    }
+  }
 }
 </script>
 <style lang="scss">
-.icon-bookmark{
-    width: 28px;
-    height: 28px;
+@keyframes pulse {
+  0%{ opacity: 0; }
+  50%{ opacity: 100; }
+  100%{ opacity: 0 }
 }
-.icon-airplane{
-    width: 28px;
-    height: 28px;
-    transform: rotate(-35deg);
+.active-pulse{
+  animation: pulse 1800ms;
 }
-.icon-comment{
-    width: 28px;
-    height: 28px;
-    transform: rotateY(180deg);
+.like-position {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 115px;
+  height: 97px;
+  color: #fff;
+  filter: drop-shadow(0 0 20px #fff);
 }
-.action{
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    &__btn{
-        padding: 2px 4px;
-    }
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
 }
-.icon-heart{
-    width: 28px;
-    height: 28px;
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.icon-heart {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  stroke: #000;
+
+}
+
+
+.icon-bookmark {
+  width: 28px;
+  height: 28px;
+  stroke: #000;
+  color: #fff;
+  & .active {
+    transition: color 300ms;
+    color: #000;
+  }
+}
+.icon-airplane {
+  width: 28px;
+  height: 28px;
+  transform: rotate(-35deg);
+}
+.icon-comment {
+  width: 28px;
+  height: 28px;
+  transform: rotateY(180deg);
+}
+.action {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  &__btn {
+    padding: 2px 4px;
+    &  .active {
+    transition:
+      color 300ms,
+      stroke 300ms;
     color: #fb324d;
+    stroke: #fb324d;
+  }
+  }
 }
 .sm-card {
   background-color: #fff;
@@ -128,9 +165,10 @@ export default {
   border: 1px solid var(--c-cool-blue-2);
   max-width: 264px;
   flex-shrink: 0;
-  &__img{
+  &__img {
     cursor: pointer;
-}
+    position: relative;
+  }
   &__header {
     padding: 12px;
   }
@@ -139,12 +177,12 @@ export default {
     justify-content: space-between;
     align-items: center;
   }
-  &__footer{
+  &__footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px;
-}
+  }
 }
 .avatar {
   width: 32px;
@@ -166,20 +204,20 @@ export default {
     border-radius: 50%;
   }
 }
-.header-text{
-    flex: auto;
-    margin-left: 16px;
+.header-text {
+  flex: auto;
+  margin-left: 16px;
   &__title {
     font-weight: 900;
     font-size: 10px;
-    &--blue{
-        color: var(--c-cool-blue-2);
-        font-weight: 700;
+    &--blue {
+      color: var(--c-cool-blue-2);
+      font-weight: 700;
     }
   }
-  &__content{
-   font-weight: 500;
-   font-size: 10px;
+  &__content {
+    font-weight: 500;
+    font-size: 10px;
   }
 }
 </style>

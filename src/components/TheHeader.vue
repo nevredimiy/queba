@@ -37,8 +37,12 @@
       </div>
     </nav>
     <a href="#bookonline" class="icon-task">
-      <IconTask class="color-blue show-only-mobile" />
-      <BaseBtn class="btn--white show-only-desktop" />
+      <icon-task class="color-blue show-only-mobile" />
+      <base-btn class="btn--white show-only-desktop">
+      <template #text-btn>
+        <icon-task></icon-task>Bookonline
+      </template>
+    </base-btn>
     </a>
     </div>
     </div>

@@ -1,24 +1,26 @@
 <template>
-  <section-wrap>
-    <template #header-3>Services and Prices</template>
-    <template #header-2>Book your beauty</template>
-    <template #content>
-      <div class="services__slider">
-        <service-slider-list
-          @move-translate="handleMoveTranslate"
-          @slider-items="(n) => (numItems = n)"
-          :step="step"
-        />
-      </div>
-      <div class="services__steps">
-        <button @click="stepRight()" class="services__btn-step" type="button">
-          <icon-arrow-left class="icon-step right-step" />
-        </button>
-        <button @click="stepLeft()" class="services__btn-step" type="button">
-          <icon-arrow-left class="icon-step left-step" />
-        </button>
-      </div>
-    </template>
+  <section-wrap class="services">
+
+      <template #header-3>Services and Prices</template>
+      <template #header-2>Book your beauty</template>
+      <template #content>
+        <div class="services__slider">
+          <service-slider-list
+            @move-translate="handleMoveTranslate"
+            @slider-items="(n) => (numItems = n)"
+            :step="step"
+          />
+        </div>
+        <div class="services__steps">
+          <button @click="stepRight()" class="services__btn-step" type="button">
+            <icon-arrow-left class="icon-step right-step" />
+          </button>
+          <button @click="stepLeft()" class="services__btn-step" type="button">
+            <icon-arrow-left class="icon-step left-step" />
+          </button>
+        </div>
+      </template>
+
   </section-wrap>
 </template>
 <script>
@@ -56,6 +58,7 @@ export default {
 <style lang="scss">
 .services {
   padding: 48px 0 48px 40px;
+   will-change: transform;
   &__title {
     margin-bottom: 40px;
   }

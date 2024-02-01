@@ -1,5 +1,5 @@
 <template>
-  <div  @mousedown="draggMouseDown" ref="sliderBox" :style="{left: -widthItemSlide *step + 'px'}" class="slider-wrap">
+  <div  @mousedown="draggMouseDown" @touchstart="draggTouchStart" ref="sliderBox" :style="{left: -widthItemSlide *step + 'px'}" class="slider-wrap">
     <service-slider-item>
       <template #img>
         <img
@@ -80,7 +80,6 @@ export default {
   mounted() {
     this.sliderItems = this.$refs.sliderBox.childNodes.length;
     this.$emit("sliderItems", this.sliderItems - 1);
-    console.dir(this.$refs.sliderBox);
   },
   data() {
     return {
@@ -125,6 +124,36 @@ export default {
       // this.$refs.sliderBox.style.top = (this.$refs.sliderBox.offsetTop - this.positions.movementY) + 'px';
       this.$refs.sliderBox.style.left = (this.$refs.sliderBox.offsetLeft - this.positions.movementX) + 'px';
       this.moveTranslate = (this.$refs.sliderBox.offsetLeft - this.positions.movementX);
+    },
+    draggTouchStart(event) {
+      this.positions.clientX = event.targetTouches.item(0).clientX;
+      document.ontouchmove = this.elementDragTouch;
+      document.ontouchend = this.closeDragElementTouch;
+    },
+    elementDragTouch(event) {
+      this.positions.movementX = this.positions.clientX - event.targetTouches.item(0).clientX;
+      this.positions.clientX = event.targetTouches.item(0).clientX;
+      this.$refs.sliderBox.style.left = (this.$refs.sliderBox.offsetLeft - this.positions.movementX) + 'px';
+      this.moveTranslate = (this.$refs.sliderBox.offsetLeft - this.positions.movementX);
+    },
+     closeDragElementTouch() {
+      document.ontouchstart = null;
+      document.ontouchend = null;
+      if (this.positions.movementX > 0) {
+        this.moveTranslate = (Math.floor(this.moveTranslate / this.widthItemSlide)) * this.widthItemSlide;
+      } else {
+        this.moveTranslate = (Math.ceil(this.moveTranslate / this.widthItemSlide)) * this.widthItemSlide;
+      }
+      this.n = Math.round(this.moveTranslate / -this.widthItemSlide);
+      this.$emit("move-translate", this.n);
+      //в случае dragged вправо, когда left = 0 (перелимит вправо)
+      if (this.$refs.sliderBox.offsetLeft > 0) {
+        this.$refs.sliderBox.style.left = 0;
+      }
+      //в случае dragged вправо, когда left > чем весь слайдер (перелимит влево)
+      if (this.$refs.sliderBox.offsetLeft < (this.sliderItems-1) * -this.widthItemSlide) {
+        this.$refs.sliderBox.style.left = ((this.sliderItems-1) * -this.widthItemSlide) + 'px';
+      }
     },
     closeDragElement() {
       document.onmouseup = null;
