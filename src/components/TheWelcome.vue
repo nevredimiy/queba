@@ -12,95 +12,98 @@
   </section-wrap>
   <div class="container">
     <div class="slider-drag">
-      <div ref="sliderBox" @mousedown="dragMouseDown" class="slider-drag__wrap">
-        <div class="reason">
-          <div class="reason__icon">
-            <icon-safety></icon-safety>
-          </div>
-          <div class="reason__content">
-            <div class="reason__title">Safety First</div>
-            <div class="reason__text">
-              We prioritize your well-being by employing medical sterilization using specialized
-              autoclaves. Your safety is our top priority. Rest assured, your well-being is at the
-              forefront of everything we do, providing you with the peace of mind you deserve.
+      <the-slider :widthItemSlide="280" :slider-items="7" class="slider-drag__wrap">
+        <template #items>
+          <div class="reason">
+            <div class="reason__icon">
+              <icon-safety></icon-safety>
+            </div>
+            <div class="reason__content">
+              <div class="reason__title">Safety First</div>
+              <div class="reason__text">
+                We prioritize your well-being by employing medical sterilization using specialized
+                autoclaves. Your safety is our top priority. Rest assured, your well-being is at the
+                forefront of everything we do, providing you with the peace of mind you deserve.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="reason">
-          <div class="reason__icon">
-            <icon-expert></icon-expert>
-          </div>
-          <div class="reason__content">
-            <div class="reason__title">Expert Craftsmanship:</div>
-            <div class="reason__text">
-              Our team of seasoned specialists isn't just here to perform procedures – they're here
-              to guide you. With their wealth of experience, they'll suggest the best options to
-              accentuate your beauty, ensuring your experience is both pampering and informative.
+          <div class="reason">
+            <div class="reason__icon">
+              <icon-expert></icon-expert>
+            </div>
+            <div class="reason__content">
+              <div class="reason__title">Expert Craftsmanship:</div>
+              <div class="reason__text">
+                Our team of seasoned specialists isn't just here to perform procedures – they're
+                here to guide you. With their wealth of experience, they'll suggest the best options
+                to accentuate your beauty, ensuring your experience is both pampering and
+                informative.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="reason">
-          <div class="reason__icon">
-            <icon-efficiency></icon-efficiency>
-          </div>
-          <div class="reason__content">
-            <div class="reason__title">Efficiency Meets Luxury</div>
-            <div class="reason__text">
-              We understand the hustle and bustle of city life. That's why we offer our exclusive 4
-              Hands Service, allowing you to enjoy multiple treatments simultaneously, making the
-              most of your valuable time.
+          <div class="reason">
+            <div class="reason__icon">
+              <icon-efficiency></icon-efficiency>
+            </div>
+            <div class="reason__content">
+              <div class="reason__title">Efficiency Meets Luxury</div>
+              <div class="reason__text">
+                We understand the hustle and bustle of city life. That's why we offer our exclusive
+                4 Hands Service, allowing you to enjoy multiple treatments simultaneously, making
+                the most of your valuable time.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="reason">
-          <div class="reason__icon">
-            <icon-long-lasting></icon-long-lasting>
-          </div>
-          <div class="reason__content">
-            <div class="reason__title">Long-Lasting Beauty</div>
-            <div class="reason__text">
-              For enduring results, our aftercare recommendations ensure your lashes and brows
-              remain stunning long after your treatments.
+          <div class="reason">
+            <div class="reason__icon">
+              <icon-long-lasting></icon-long-lasting>
+            </div>
+            <div class="reason__content">
+              <div class="reason__title">Long-Lasting Beauty</div>
+              <div class="reason__text">
+                For enduring results, our aftercare recommendations ensure your lashes and brows
+                remain stunning long after your treatments.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="reason">
-          <div class="reason__icon">
-            <icon-wind></icon-wind>
-          </div>
-          <div class="reason__content">
-            <div class="reason__title">Trendsetters' Paradise</div>
-            <div class="reason__text">
-              At Qubea London, we're always at the forefront of trends. Discover the latest
-              materials and popular nail polish palettes that reflect the most current styles.
+          <div class="reason">
+            <div class="reason__icon">
+              <icon-wind></icon-wind>
+            </div>
+            <div class="reason__content">
+              <div class="reason__title">Trendsetters' Paradise</div>
+              <div class="reason__text">
+                At Qubea London, we're always at the forefront of trends. Discover the latest
+                materials and popular nail polish palettes that reflect the most current styles.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="reason">
-          <div class="reason__icon">
-            <icon-custom-centric></icon-custom-centric>
-          </div>
-          <div class="reason__content">
-            <div class="reason__title">Customer-Centric Approach</div>
-            <div class="reason__text">
-              Our commitment to you doesn't end after your visit. Our dedicated Customer Care
-              Manager is always available to address your feedback and suggestions.
+          <div class="reason">
+            <div class="reason__icon">
+              <icon-custom-centric></icon-custom-centric>
+            </div>
+            <div class="reason__content">
+              <div class="reason__title">Customer-Centric Approach</div>
+              <div class="reason__text">
+                Our commitment to you doesn't end after your visit. Our dedicated Customer Care
+                Manager is always available to address your feedback and suggestions.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="reason">
-          <div class="reason__icon">
-            <icon-serene-oasis></icon-serene-oasis>
-          </div>
-          <div class="reason__content">
-            <div class="reason__title">Serene Oasis</div>
-            <div class="reason__text">
-              Your comfort is paramount. Our serene atmosphere and friendly administrator await to
-              offer you a cup of tea, coffee, or a glass of Prosecco to elevate your mood.
+          <div class="reason">
+            <div class="reason__icon">
+              <icon-serene-oasis></icon-serene-oasis>
+            </div>
+            <div class="reason__content">
+              <div class="reason__title">Serene Oasis</div>
+              <div class="reason__text">
+                Your comfort is paramount. Our serene atmosphere and friendly administrator await to
+                offer you a cup of tea, coffee, or a glass of Prosecco to elevate your mood.
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </template>
+      </the-slider>
     </div>
   </div>
 </template>
@@ -114,6 +117,7 @@ import IconLongLasting from './icons/IconLongLasting.vue'
 import IconWind from './icons/IconWind.vue'
 import IconCustomCentric from './icons/IconCustomCentric.vue'
 import IconSereneOasis from './icons/IconSereneOasis.vue'
+import TheSlider from './TheSlider.vue'
 export default {
   components: {
     SectionWrap,
@@ -123,61 +127,23 @@ export default {
     IconLongLasting,
     IconWind,
     IconCustomCentric,
-    IconSereneOasis
+    IconSereneOasis,
+    TheSlider
   },
-  mounted() {
-    this.sliderItems = this.$refs.sliderBox.children.length
-    this.widthItemSlide = this.$refs.sliderBox.children[0].clientWidth
-  },
-  data() {
-    return {
-      positions: {
-        clientX: undefined,
-        movementX: 0
-      },
-      sliderItems: 0,
-      widthItemSlide: 0
-    }
-  },
-  methods: {
-    dragMouseDown(e) {
-      e.preventDefault()
-      this.positions.clientX = e.clientX
-      document.onmousemove = this.dragSlider //document.addEventListener("mousemove", this.dragSlider())
-      document.onmouseup = this.closeDragSlider //document.addEventListener("mouseup", this.draggMouseMove())
-    },
-    dragSlider(e) {
-      e.preventDefault()
-      this.movementX = this.positions.clientX - e.clientX
-      this.$refs.sliderBox.style.left = this.$refs.sliderBox.offsetLeft - this.movementX + 'px'
-      this.positions.clientX = e.clientX
-    },
-    closeDragSlider() {
-      document.onmousemove = null //document.removeEventListener("mousemove", this.draggMouseMove())
-      document.onmouseup = null //document.removeEventListener("mouseup", this.draggMouseMove())
-      //в случае dragged вправо, когда left = 0 (перелимит вправо)
-      if (this.$refs.sliderBox.offsetLeft > 0) {
-        this.$refs.sliderBox.style.left = 0
-      }
-      //в случае dragged вправо, когда left > чем весь слайдер (перелимит влево)
-      if (this.$refs.sliderBox.offsetLeft < (this.sliderItems - 1) * -this.widthItemSlide) {
-        this.$refs.sliderBox.style.left = (this.sliderItems - 1) * -this.widthItemSlide + 'px'
-      }
-    }
-  }
 }
 </script>
 <style lang="scss">
 .slider-drag {
   overflow: hidden;
   position: relative;
+  margin-bottom: 80px;
   @media screen and (min-width: 980px) {
     overflow: auto;
   }
   &__wrap {
     position: relative;
     display: flex;
-    @media  screen and (min-width: 980px) {
+    @media screen and (min-width: 980px) {
       position: static;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -200,14 +166,14 @@ export default {
     width: auto;
     padding: 15px;
     border-radius: 8px;
-     @media (hover:hover){
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      &:hover &__icon svg {
+        transform: translateY(-3px);
+      }
     }
-    &:hover &__icon svg{
-      transform: translateY(-3px);
-    }
-  }
   }
 
   &__icon {
@@ -237,9 +203,6 @@ export default {
   margin-bottom: 48px;
   @media screen and (min-width: 980px) {
     width: 50%;
-  }
-  @media screen and (min-width: 1536px) {
-    width: 30%;
   }
 }
 </style>

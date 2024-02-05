@@ -65,7 +65,6 @@ export default {
   position: relative;
 
   &__btn {
-    padding: 0 40px;
     display: inline-block;
     margin-top: 40px;
   }

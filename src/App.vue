@@ -8,6 +8,7 @@
     <the-welcome />
     <the-join-us />
   </main>
+  <the-footer />
 </template>
 <script>
 import TheHeader from './components/TheHeader.vue';
@@ -17,10 +18,10 @@ import SocialMedia from './components/SocialMedia.vue';
 import TheLocation from './components/TheLocation.vue';
 import TheWelcome from './components/TheWelcome.vue';
 import TheJoinUs from './components/TheJoinUs.vue';
-
+import TheFooter from './components/TheFooter.vue';
 export default {
   components: {
-    TheHeader, TheHero, ServicesPrices, SocialMedia, TheLocation, TheWelcome, TheJoinUs
+    TheHeader, TheHero, ServicesPrices, SocialMedia, TheLocation, TheWelcome, TheJoinUs, TheFooter
   }
 }
 </script>

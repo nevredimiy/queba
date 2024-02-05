@@ -1,24 +1,20 @@
 <template>
   <section class="hero">
-    <picture class="hero__background">
-      <source srcset="../assets/images/hero-background-descktop.jpg" media="(min-width: 768px)" />
-      <img src="../assets/images/hero-background-mobile.jpg" alt="Enhancing your" />
-    </picture>
-    <div class="hero__content content">
-      <div class="content__header">
-        <h1 class="content__title">Enhancing your</h1>
-        <div class="content__desc">natural beauty</div>
+    <div class="hero__content">
+      <div class="hero__header">
+        <h1 class="hero__title">Enhancing your</h1>
+        <div class="hero__desc">natural beauty</div>
       </div>
-      <div class="content__action">
+      <div class="hero__action">
         <div class="">
           <base-btn class="btn-custom btn--brown">
             <template #text-btn> <icon-task></icon-task>Bookonline </template>
           </base-btn>
         </div>
-        <a class="content__checkout" href="#checkout">
-          <div class="content__checkout-text">Checkout services</div>
+        <a class="hero__checkout" href="#checkout">
+          <div class="hero__checkout-text">Checkout services</div>
           <div class="arrow-down">
-            <IconArrowDown />
+            <icon-arrow-down />
           </div>
         </a>
       </div>
@@ -39,6 +35,7 @@ export default {
 </script>
 <style lang="scss">
 $bp-md: 768px;
+$bp-xl: 1280px;
 
 .btn-custom {
   margin-bottom: 40px;
@@ -69,24 +66,49 @@ $bp-md: 768px;
 }
 .hero {
   position: relative;
-  &__background img {
-    object-fit: contain;
-    width: 100%;
-    height: auto;
+  background-color: var(--c-umber-1);
+  min-height: 667px;
+  width: 100%;
+  background-image: url('../assets/images/hero/hero-girl-bg.jpg');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media screen and (min-width: $bp-md) {
+    background-size: cover;
+    background-position: right 15em top 0px;
+    min-height: 400px;
+  }
+  @media screen and (min-width: $bp-xl) {
+    background-position: right 25em top -40px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(121, 98, 79) 60%);
+    z-index: 0;
+    @media screen and (min-width: $bp-md) {
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(121, 98, 79) 60%);
+    }
+    @media screen and (min-width: $bp-md) {
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(121, 98, 79) 75%);
+    }
   }
   &__content {
     position: absolute;
     bottom: 0;
     width: 100%;
     padding: 0 20px;
+    z-index: 20;
     @media only screen and (min-width: $bp-md) {
       width: 60%;
       right: 0;
       top: 20%;
     }
+    @media screen and (min-width: $bp-xl) {
+      width: 50%;
+    }
   }
-}
-.content {
   &__header {
     text-align: center;
     overflow: hidden;
@@ -128,6 +150,15 @@ $bp-md: 768px;
     justify-content: center;
     align-items: center;
     gap: 16px;
+    @media (hover: hover) {
+      &:hover .arrow-down svg {
+        color: #fff;
+      }
+      &:hover &-text {
+        scale: 1.05;
+        color: #fff;
+      }
+    }
     @media only screen and (min-width: $bp-md) {
       flex-direction: row;
     }
@@ -135,6 +166,10 @@ $bp-md: 768px;
   .arrow-down {
     @media only screen and (min-width: $bp-md) {
       transform: rotate(-90deg);
+    }
+    & svg {
+      color: var(--c-white-coffee-5);
+      transition: color 150ms;
     }
   }
   &__checkout-text {

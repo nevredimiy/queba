@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Services and price",
+    "link": "services-and-price"
+  },
+  {
+    "label": "Works",
+    "link": "works"
+  },
+  {
+    "label": "Locations",
+    "link": "locations"
+    },
+    {
+    "label": "Features",
+    "link": "features"
+    }
+]
