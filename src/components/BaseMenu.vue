@@ -60,7 +60,7 @@ $bp-md: 980px;
     }
     @media only screen and (min-width: $bp-md) {
       font-size: 20px;
-      color: rgba(0,6,19,0.4);
+      color: rgba(0, 6, 19, 0.4);
       padding: 10px 15px;
       transition: color 300ms;
       @include hover {
@@ -75,16 +75,16 @@ $bp-md: 980px;
       position: absolute;
       bottom: 0;
       border-bottom: 3px solid #000;
-      // background-color: rgba(0,0,0,0.2);
+      background-color: rgba(0, 20, 20, 0.1);
       height: 4px;
-      width: 8px;
+      width: 0px;
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
       transition:
-        opacity 200ms,
-        width 400ms 400ms,
-        height 400ms 800ms;
+        opacity 200ms 100ms,
+        width 400ms 100ms,
+        height 400ms 400ms;
       z-index: -1;
     }
   }

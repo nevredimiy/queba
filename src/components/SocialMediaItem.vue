@@ -1,65 +1,67 @@
 <template>
-  <div class="sm-card">
-    <header class="sm-card__header">
-      <div class="sm-card__header-wrap">
-        <div class="avatar">
-          <div class="avatar__bg">
-            <div class="avatar__icon"></div>
+  <div class="sm">
+    <div class="sm-card">
+      <header class="sm-card__header">
+        <div class="sm-card__header-wrap">
+          <div class="avatar">
+            <div class="avatar__bg">
+              <div class="avatar__icon"></div>
+            </div>
           </div>
-        </div>
-        <div class="header-text">
-          <div class="header-text__title">
-            queba.london &#183;
-            <span class="header-text__title--blue">Follow</span>
+          <div class="header-text">
+            <div class="header-text__title">
+              queba.london &#183;
+              <span class="header-text__title--blue">Follow</span>
+            </div>
+            <div class="header-text__content">London, United Kindom</div>
           </div>
-          <div class="header-text__content">London, United Kindom</div>
-        </div>
-        <button
-          @touchstart="nameCurrentEvent('touchstart')"
-          @touchmove="nameCurrentEvent('touchmove')"
-          @touchend="nameCurrentEvent('touchend')"
-          type="button"
-          title="Menu post"
-          class=""
-        >
-          <svg
-            class="hover:scale-x-90 transition-transform"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+          <button
+            @touchstart="nameCurrentEvent('touchstart')"
+            @touchmove="nameCurrentEvent('touchmove')"
+            @touchend="nameCurrentEvent('touchend')"
+            type="button"
+            title="Menu post"
+            class=""
           >
-            <circle cx="4" cy="12" r="2" />
-            <circle cx="12" cy="12" r="2" />
-            <circle cx="20" cy="12" r="2" />
-          </svg>
-        </button>
-      </div>
-    </header>
-    <main>
-      <div class="sm-card__img" @dblclick="isActive = !isActive">
-        <slot name="img"></slot>
-        <div :class="{'active-pulse': isActive}" class="like-position">
+            <svg
+              class="hover:scale-x-90 transition-transform"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="4" cy="12" r="2" />
+              <circle cx="12" cy="12" r="2" />
+              <circle cx="20" cy="12" r="2" />
+            </svg>
+          </button>
+        </div>
+      </header>
+      <main>
+        <div class="sm-card__img" @dblclick="isActive = !isActive">
+          <slot name="img"></slot>
+          <div :class="{ 'active-pulse': isActive }" class="like-position">
             <icon-heart class="icon-like"></icon-heart>
           </div>
-      </div>
-    </main>
-    <footer class="sm-card__footer">
-      <div class="action">
-        <button class="action__btn" @click="isActive = !isActive">
-          <icon-heart class="icon-heart" :class="{ active: isActive }" />
+        </div>
+      </main>
+      <footer class="sm-card__footer">
+        <div class="action">
+          <button class="action__btn" @click="isActive = !isActive">
+            <icon-heart class="icon-heart" :class="{ active: isActive }" />
+          </button>
+          <button class="action__btn">
+            <icon-comment class="icon-comment"></icon-comment>
+          </button>
+          <button class="action__btn">
+            <icon-airplane class="icon-airplane"></icon-airplane>
+          </button>
+        </div>
+        <button class="action__btn" @click="handleLike">
+          <icon-bookmark class="icon-bookmark"></icon-bookmark>
         </button>
-        <button class="action__btn">
-          <icon-comment class="icon-comment"></icon-comment>
-        </button>
-        <button class="action__btn">
-          <icon-airplane class="icon-airplane"></icon-airplane>
-        </button>
-      </div>
-      <button class="action__btn" @click="handleLike">
-        <icon-bookmark class="icon-bookmark"></icon-bookmark>
-      </button>
-    </footer>
+      </footer>
+    </div>
   </div>
 </template>
 <script>
@@ -86,12 +88,62 @@ export default {
 }
 </script>
 <style lang="scss">
-@keyframes pulse {
-  0%{ opacity: 0; }
-  50%{ opacity: 100; }
-  100%{ opacity: 0 }
+$width-item: 264;
+.sm {
+  position: relative;
 }
-.active-pulse{
+.sm-card {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--c-cool-blue-2);
+  width: $width-item + px;
+  height: 457px;
+  flex-shrink: 0;
+  perspective: 500px;
+  transform-style: preserve-3d;
+  transition: all 300ms ease-in-out;
+  @media screen and (min-width: 1024px) {
+    @media (hover: hover) {
+      &:hover {
+        transform: rotateZ(3deg) scale(1.05);
+        filter: drop-shadow(0 0 20px #fff) drop-shadow(5px 5px 10px #000);
+        position: relative;
+        z-index: 10;
+      }
+    }
+  }
+  &__img {
+    cursor: pointer;
+    position: relative;
+  }
+  &__header {
+    padding: 12px;
+  }
+  &__header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.active-pulse {
   animation: pulse 1800ms;
 }
 .like-position {
@@ -120,10 +172,7 @@ export default {
   height: 28px;
   color: #fff;
   stroke: #000;
-
 }
-
-
 .icon-bookmark {
   width: 28px;
   height: 28px;
@@ -150,40 +199,16 @@ export default {
   gap: 2px;
   &__btn {
     padding: 2px 4px;
-    &  .active {
-    transition:
-      color 300ms,
-      stroke 300ms;
-    color: #fb324d;
-    stroke: #fb324d;
-  }
-  }
-}
-.sm-card {
-  background-color: #fff;
-  border-radius: 8px;
-  border: 1px solid var(--c-cool-blue-2);
-  max-width: 264px;
-  flex-shrink: 0;
-  &__img {
-    cursor: pointer;
-    position: relative;
-  }
-  &__header {
-    padding: 12px;
-  }
-  &__header-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
+    & .active {
+      transition:
+        color 300ms,
+        stroke 300ms;
+      color: #fb324d;
+      stroke: #fb324d;
+    }
   }
 }
+
 .avatar {
   width: 32px;
   height: 32px;

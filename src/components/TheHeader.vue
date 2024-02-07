@@ -85,8 +85,11 @@ export default {
     isOpenMenu() {
       if (this.isOpenMenu) {
         // console.log(this.$refs.menu.$el.style)
-        this.$refs.menu.$el.style.top = `${this.headerHeight}px`
+        this.$refs.menu.$el.style.top = `${this.headerHeight-1}px`
+        this.$refs.menu.$el.style.overflowY = 'auto'
+        document.body.style.overflow = 'hidden'
       } else {
+        document.body.style.overflow = 'auto'
         setTimeout(() => {
           this.$refs.menu.style.top = null
         }, 400)
@@ -133,10 +136,11 @@ $bp-md: 980px;
     position: absolute;
     inset: 0;
     background-color: #fff;
-    z-index: 10;
+    z-index: 30;
     padding: 15px 0;
     transform: translateX(-105%);
     transition: transform 300ms;
+    overflow: hidden;
 
     @media only screen and (min-width: $bp-md) {
       position: static;
