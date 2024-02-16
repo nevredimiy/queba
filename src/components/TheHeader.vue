@@ -7,7 +7,7 @@
           <IconBurgerClose v-if="isOpenMenu" />
         </button>
         <div class="header__logo">
-          <a href="/">
+          <a href="#logo">
             <IconLogo />
           </a>
         </div>

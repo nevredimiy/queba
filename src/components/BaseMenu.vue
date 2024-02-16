@@ -2,7 +2,7 @@
   <nav ref="menuChild" class="menu">
     <ul class="menu__list">
       <li v-for="item in dataMenu" :key="item.link" class="menu__item">
-        <a class="menu__link" :href="`/${item.link}`">{{ item.label }}</a>
+        <a class="menu__link" :href="`/#${item.link}`">{{ item.label }}</a>
       </li>
     </ul>
     <slot></slot>
