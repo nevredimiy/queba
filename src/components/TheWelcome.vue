@@ -131,6 +131,7 @@ export default {
 .welcome__slider-wrap {
   position: relative;
   display: flex;
+  padding-inline: 10px;
   @media screen and (min-width: 980px) {
     position: static;
     display: grid;
