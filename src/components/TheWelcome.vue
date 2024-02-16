@@ -128,9 +128,6 @@ export default {
 }
 </script>
 <style lang="scss">
-.slider-main {
-  margin-bottom: 80px;
-}
 .welcome__slider-wrap {
   position: relative;
   display: flex;

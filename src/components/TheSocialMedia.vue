@@ -73,4 +73,10 @@ export default {
     flex: auto;
   }
 }
+.slider-wrap {
+  &:has(:hover) .sm:not(:hover) {
+    transition: filter 300ms ease-in-out;
+    filter: grayscale(0.4);
+  }
+}
 </style>

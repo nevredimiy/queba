@@ -99,14 +99,14 @@ $width-item: 264;
   width: $width-item + px;
   height: 457px;
   flex-shrink: 0;
-  perspective: 500px;
-  transform-style: preserve-3d;
+  // perspective: 500px;
+  // transform-style: preserve-3d;
   transition: all 300ms ease-in-out;
   @media screen and (min-width: 1024px) {
     @media (hover: hover) {
       &:hover {
         transform: rotateZ(3deg) scale(1.05);
-        filter: drop-shadow(0 0 20px #fff) drop-shadow(5px 5px 10px #000);
+        filter: drop-shadow(0 0 10px #fff) drop-shadow(0px 0px 5px #000);
         position: relative;
         z-index: 10;
       }
